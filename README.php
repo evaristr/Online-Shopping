@@ -1,9 +1,3 @@
-<?php
-session_start();
-if(isset($_SESSION['username'])){
-	header("Location: fandom.php");
-}
-?>
  <html>
  <head>
 <link rel="stylesheet" href="css/head.css">
@@ -17,11 +11,10 @@ if(isset($_SESSION['username'])){
 <h1><center><img src="res/thinkgeek-png.png"></center></h1>
 
 
-
 <!-- LOGIN -->
 
 <div id="login">
-<form name="loginForm" method="post" action="log.php">
+<form name="loginForm" method="post" action="process.php" onsubmit="return ValidateUsername() ">
 <table align="left" width="150%">
 <tr>
 	<td align="center">
@@ -46,18 +39,7 @@ if(isset($_SESSION['username'])){
 		<input type="submit" name="login" value="Let me in.." class="click">
 	</td>
 </tr>
-<!--
-<tr>
-	<td colspan="2" class="signin">
-		<input type="image" src="signin_google.png" alt="Login with Google" width="50%" height="50%">
-	</td>
-</tr>
-<tr>
-	<td colspan="2" class="signin">
-		<input type="image" src="signin_fb.png" alt="Login with FB" width="50%" height="50%">
-	</td>
-</tr>
-//-->
+
 </table>
 </form>
 </div>
@@ -65,7 +47,7 @@ if(isset($_SESSION['username'])){
 
 <!-- SIGNUP -->
 
-<form name="signupForm" method="post" action="pro.php" id="signup" onsubmit="return ValidateFname() || ValidateLname() || ValidateEmail() || ValidateMobile() ">
+<form name="signupForm" method="post" action="sign.php" id="signup" onsubmit="return ValidateFname() || ValidateLname() || ValidateEmail() || ValidateMobile() ">
 <table align="right"> 
 <tr>
 	<td align="center" colspan="2">
@@ -98,13 +80,13 @@ if(isset($_SESSION['username'])){
 </tr>
 
 <tr>
+
 <td colspan="2">
 	<input type="submit" name="signup" value="Sign Up" class="click">
 </td>
 </tr>
 
 </table>
-</form>
 
 </body>
 </html>
